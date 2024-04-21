@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: asg
+  template:
+    metadata:
+      labels:
+        app: asg
+    spec:
+      containers:
+      - name: asg
+        image: srinijammula/asg3
+        ports:
+        - containerPort: 8080
+        
